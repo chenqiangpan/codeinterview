@@ -1,4 +1,7 @@
-﻿namespace CodeInterview;
+﻿using System.Collections.Generic;
+using System.Linq;
+
+namespace CodeInterview;
 
 public static class FirstNonRepeatCharSolutions
 {

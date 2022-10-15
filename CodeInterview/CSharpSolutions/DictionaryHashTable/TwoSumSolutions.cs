@@ -1,4 +1,7 @@
-﻿namespace CodeInterview.DictionaryHashTable;
+﻿using System;
+using System.Collections.Generic;
+
+namespace CodeInterview.DictionaryHashTable;
 
 public class TwoSumSolutions
 {

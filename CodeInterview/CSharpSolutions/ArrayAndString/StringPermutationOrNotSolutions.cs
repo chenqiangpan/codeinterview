@@ -1,4 +1,6 @@
-﻿namespace CodeInterview;
+﻿using System;
+
+namespace CodeInterview;
 
 public class StringPermutationOrNotSolutions
 {

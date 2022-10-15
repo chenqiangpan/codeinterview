@@ -1,4 +1,6 @@
-﻿namespace CodeInterview;
+﻿using System.Collections.Generic;
+
+namespace CodeInterview;
 
 public class StringIsUniqueSolutions
 {
