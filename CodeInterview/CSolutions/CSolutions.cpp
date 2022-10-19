@@ -41,10 +41,10 @@ int main()
     */
 
     // Reverse words in a string
-    char str[] = "ab cd ";
+    char str[] = "my dad is a swan.";
 
    // printf(ReverseWords(str));
     
    
-    return 0;
+    printf("%s", ReverseWords(str));
 }

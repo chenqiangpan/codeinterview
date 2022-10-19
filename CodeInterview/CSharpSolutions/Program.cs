@@ -49,5 +49,5 @@ Console.WriteLine(StringPermutationOrNotSolutions.PermutationOrNot_2(stringA,str
 Console.WriteLine("Write a string: ");
 char[] stringO = Console.ReadLine().ToCharArray();
 
-string s = new string(ReverseWordsSolutions.ReverseWords(stringO));
+string s = new string(ReverseWordsSolutions.ReverseWords_2(stringO));
 Console.WriteLine("the reversed string is :" + s);

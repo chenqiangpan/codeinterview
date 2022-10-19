@@ -1,52 +1,46 @@
 #pragma once
 #include <cstdio>
 #include <cstring>
-const char* ReverseWords(char inputString[]);
+void ReverseString(char str[], int start, int end);
+const char* ReverseWords(char str[]);
 
-const char* ReverseWords(char inputString[])
+void ReverseString(char str[], int start, int end)
 {
-    const int SIZE = strlen(inputString);
-    
-
-    //build new string
-    char reversedString[SIZE] ;
-    int reversedStringIndex = 0;
-
-    //marker index
-    int mark_index_A = SIZE;
-    int mark_index_B = SIZE;
-
-    
-
-    for (int i = SIZE; i > 0; i --) // reverse scan
+    char temp;
+    while (end > start)
     {
-        if (inputString[i] == ' ') // we found a space and we are at the end of the original string, write into buffer directly
+        temp = str[start];
+        str[start] = str[end];
+        str[end] = temp;
+
+        start++;
+        end--;
+    }
+}
+
+const char* ReverseWords(char str[])
+{
+    int start = 0, end = 0, length;
+
+    length = strlen(str);
+
+    ReverseString(str, start, length - 1);
+
+    while (end < length)
+    {
+        if (str[end] != ' ')
         {
-            reversedString[reversedStringIndex] = inputString[i];
-            reversedStringIndex+=1;
+            start = end;
 
-            if (mark_index_A!=mark_index_B)
+            while (end < length && str[end] != ' ')
             {
-                
-                // then we copy the last word (must between mark i and mark j ) with its correct order, as from i to j
-                for (int x = mark_index_A + 1; x < mark_index_B; x ++)
-                {
-                    reversedString[reversedStringIndex] = inputString[mark_index_A+1] ;
-
-                    reversedStringIndex+=1;
-                }
-
-                mark_index_B = i ;
+                end++;
             }
-           
+            end--;
+            ReverseString(str, start, end);
         }
-        
-
-        mark_index_A = i;
+        end++;
     }
 
-
-
-
-    return  reversedString;
+    return str;
 }

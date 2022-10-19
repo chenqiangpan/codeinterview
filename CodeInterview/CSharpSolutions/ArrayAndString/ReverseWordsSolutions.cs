@@ -8,42 +8,40 @@ public class ReverseWordsSolutions
     {
         int SIZE = InputString.Length;
 
-
         //build new string
         char[] reversedString = new char[SIZE];
         int reversedStringIndex = 0;
 
         //marker index
-        int mark_index_A = SIZE-1;
-        int mark_index_B = SIZE-1;
+        int markerA = SIZE - 1;
+        int markerB = SIZE - 1;
 
-
-        for (int i = SIZE - 1; i > -1; i--) // reverse scan
+        for (int i = SIZE - 1; i > -1; i--)
         {
-            mark_index_A = i;
+            markerA = i;
 
-            if (Char.IsWhiteSpace(InputString[i])) // we found a space and we are at the end of the original string, write into buffer directly
+            if (Char.IsWhiteSpace(InputString[i]))
             {
-                // then we copy the last word (must between mark i and mark j ) with its correct order, as from i to j
-                for (int x = mark_index_A; x < mark_index_B; x++)
+                for (int x = markerA; x < markerB; x++)
                 {
                     reversedString[reversedStringIndex] = InputString[x + 1];
 
                     reversedStringIndex += 1;
                 }
 
-                if (mark_index_B == SIZE - 1)
+                if (markerB == SIZE - 1)
                 {
                     reversedString[reversedStringIndex] = ' ';
 
                     reversedStringIndex += 1;
                 }
-                mark_index_B = i;
+
+                markerB = i;
             }
 
             if (i == 0)
             {
-                for (int x = 0; x < mark_index_B; x++)
+                for (int x = 0; x < markerB; x++)
                 {
                     reversedString[reversedStringIndex] = InputString[x];
 
@@ -54,5 +52,49 @@ public class ReverseWordsSolutions
 
 
         return reversedString;
+    }
+
+    public static char[] ReverseWords_2(char[] InputString)
+    {
+        int start = 0, end = 0, length;
+
+        length = InputString.Length;
+
+        ReverseString(InputString, start, length - 1);
+
+        while (end < length)
+        {
+            if (InputString[end] != ' ')
+            {
+                start = end;
+
+                while (end < length && InputString[end] != ' ')
+                {
+                    end++;
+                }
+
+                end--;
+                ReverseString(InputString, start, end);
+            }
+
+            end++;
+        }
+
+        return InputString;
+    }
+
+    static void ReverseString(char[] InputString, int start, int end)
+    {
+        char temp;
+
+        while (end > start)
+        {
+            temp = InputString[start];
+            InputString[start] = InputString[end];
+            InputString[end] = temp;
+
+            start++;
+            end--;
+        }
     }
 }
