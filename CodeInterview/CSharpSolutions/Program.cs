@@ -2,7 +2,7 @@
 using CodeInterview;
 using CodeInterview.DictionaryHashTable;
 
-
+/*
 //Two sum test
 int[] myint = { 1, 2, 3, 4 };
 
@@ -40,3 +40,14 @@ Console.WriteLine("Write second string: ");
 char[] stringB = Console.ReadLine().ToCharArray();
 
 Console.WriteLine(StringPermutationOrNotSolutions.PermutationOrNot_2(stringA,stringB) ? "Those two strings are permutation." : "Those two strings are not permutation.");
+
+
+*/
+    
+    
+// reverse words
+Console.WriteLine("Write a string: ");
+char[] stringO = Console.ReadLine().ToCharArray();
+
+string s = new string(ReverseWordsSolutions.ReverseWords(stringO));
+Console.WriteLine("the reversed string is :" + s);

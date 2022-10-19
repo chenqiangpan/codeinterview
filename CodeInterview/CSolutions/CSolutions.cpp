@@ -3,7 +3,7 @@
 #include "ArrayAndString/FirstNonRepeatChar.h"  // NOLINT(clang-diagnostic-pragma-pack)
 #include "ArrayAndString/UniqueString.h"
 #include "ArrayAndString/DeleteCharsInString.h"
-
+#include "ArrayAndString/ReverseWords.h"
 int main()
 {
 
@@ -27,7 +27,7 @@ int main()
     */
 
     // Delete char in string test
-    char strA[100];
+     /*char strA[100];
     char strB[100];
     printf("input the first string: ");
     scanf("%s", strA);
@@ -38,6 +38,13 @@ int main()
 
     printf(DeleteCharsInString(strA,strB));
 
+    */
+
+    // Reverse words in a string
+    char str[] = "ab cd ";
+
+   // printf(ReverseWords(str));
+    
    
     return 0;
 }
