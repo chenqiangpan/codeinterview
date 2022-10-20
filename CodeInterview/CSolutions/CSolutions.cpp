@@ -4,6 +4,8 @@
 #include "ArrayAndString/UniqueString.h"
 #include "ArrayAndString/DeleteCharsInString.h"
 #include "ArrayAndString/ReverseWords.h"
+#include "ArrayAndString/OneEditAway.h"
+#include "BinarySearch/BinarySearch.h"
 int main()
 {
 
@@ -38,13 +40,20 @@ int main()
 
     printf(DeleteCharsInString(strA,strB));
 
-    */
+    
 
     // Reverse words in a string
     char str[] = "my dad is a swan.";
-
-   // printf(ReverseWords(str));
-    
-   
     printf("%s", ReverseWords(str));
+
+    
+
+    // one edit away
+    char str1[] = "abcd";
+    char str2[] = "ccbcd";
+    printf("%i", OneEditAway(str1,str2));
+    */
+
+    // Binary search
+    printf("%i",BinarySearch(8));
 }
