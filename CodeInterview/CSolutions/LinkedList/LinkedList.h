@@ -15,10 +15,8 @@ void
 ListPrepend(struct node** head, int val)
 {
     node* new_node;
-    node* new_node_2;
     
     new_node = (struct node*)malloc(sizeof(struct node));
-    new_node_2 = new struct node;
     
     new_node->data = val;
     new_node->next = *head;
@@ -32,7 +30,7 @@ void ListPush(struct node** head, int val)
     new_node -> data = val;
     new_node -> next = NULL;
 
-    if(*head = NULL)
+    if(*head == NULL)
     {
         *head = new_node;
     }
@@ -72,7 +70,7 @@ void LinkedListTest()
         ListPrepend(&head, i);
     }
 
- //   ListPush(&head,19);
+   ListPush(&head,19);
 
     PrintList(head);
 }
