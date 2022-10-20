@@ -6,6 +6,7 @@
 #include "ArrayAndString/ReverseWords.h"
 #include "ArrayAndString/OneEditAway.h"
 #include "BinarySearch/BinarySearch.h"
+#include "LinkedList/LinkedList.h"
 int main()
 {
 
@@ -55,5 +56,8 @@ int main()
     */
 
     // Binary search
-    printf("%i",BinarySearch(8));
+    // printf("%i",BinarySearch(8));
+
+    // linked list test
+    LinkedListTest();
 }
