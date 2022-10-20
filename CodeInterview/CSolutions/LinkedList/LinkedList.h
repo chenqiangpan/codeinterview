@@ -1,7 +1,6 @@
 ﻿#include <stdio.h>
 #include<stdlib.h>
 
-#include "../ArrayAndString/OneEditAway.h"
 
 void LinkedListTest();
 
@@ -15,9 +14,9 @@ void
 ListPrepend(struct node** head, int val)
 {
     node* new_node;
-    
+
     new_node = (struct node*)malloc(sizeof(struct node));
-    
+
     new_node->data = val;
     new_node->next = *head;
     *head = new_node;
@@ -26,17 +25,17 @@ ListPrepend(struct node** head, int val)
 void ListPush(struct node** head, int val)
 {
     node* new_node;
-    new_node = (struct node*)malloc(sizeof(struct  node));
-    new_node -> data = val;
-    new_node -> next = NULL;
+    new_node = (struct node*)malloc(sizeof(struct node));
+    new_node->data = val;
+    new_node->next = NULL;
 
-    if(*head == NULL)
+    if (*head == NULL)
     {
         *head = new_node;
     }
     else
     {
-        struct node *lastNode = *head;
+        struct node* lastNode = *head;
 
         while (lastNode->next != nullptr)
         {
@@ -51,7 +50,7 @@ void
 PrintList(struct node* head)
 {
     struct node* temp = head;
-    
+
     while (temp != NULL)
     {
         printf("%d -> ", temp->data);
@@ -59,6 +58,47 @@ PrintList(struct node* head)
     }
 
     printf("NULL\n");
+}
+
+int SearchNode(struct node* head, int val)
+{
+    struct node* temp = head;
+    while (temp != NULL)
+    {
+        if (temp->data == val) return 1;
+        else temp = temp->next;
+    }
+    return -1;
+}
+
+void DeleteNode(struct node** head, int key)
+{
+    struct node* temp;
+
+    if ((*head)->data == key)
+    {
+        temp = *head;
+        *head = (*head)->next;
+        free(temp);
+    }
+    else
+    {
+        struct node* current = *head;
+        while (current->next != NULL)
+        {
+            if (current->next->data == key)
+            {
+                temp = current->next;
+                current->next = current->next->next;
+                free(temp);
+                break;
+            }
+            else
+            {
+                current = current->next;
+            }
+        }
+    }
 }
 
 void LinkedListTest()
@@ -70,7 +110,13 @@ void LinkedListTest()
         ListPrepend(&head, i);
     }
 
-   ListPush(&head,19);
+    ListPush(&head, 19);
+    ListPush(&head, 29);
+    ListPrepend(&head, 5);
 
+    printf("%i \n", SearchNode(head, 23));
+
+    DeleteNode(&head, 5);
+    DeleteNode(&head, 2);
     PrintList(head);
 }
