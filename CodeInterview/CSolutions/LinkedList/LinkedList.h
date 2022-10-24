@@ -302,6 +302,28 @@ inline void GetValueEnd(struct node* head)
 }
 
 
+inline void ReverseList(struct node** head)
+{
+
+    struct node* prev = nullptr;
+    struct node* current = *head;
+    struct node* next = *head;
+
+    while (current)
+    {
+        next = current->next;
+        current->next = prev;
+        prev = current;
+        current = next;
+    }
+
+    *head = prev;
+    printf("the reversed list now is: ");
+    PrintList(*head);
+}
+
+
+
 inline void LinkedListTest()
 {
     struct node* head = NULL;
@@ -341,4 +363,7 @@ inline void LinkedListTest()
     PrintList(head);
     RemoveNodeByIndex(&head, 0);
     PrintList(head);
+    InsertValueAtIndex(head, 1,48);
+    PrintList(head);
+    ReverseList(&head);
 }
