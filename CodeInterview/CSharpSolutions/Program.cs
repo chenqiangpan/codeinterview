@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using CodeInterview;
 using CodeInterview.DictionaryHashTable;
+using static CSharpSolutions.LinkedListTest;
+using static CSharpSolutions.LinkedListRemoveRepeat;
 
 /*
 //Two sum test
@@ -42,7 +45,6 @@ char[] stringB = Console.ReadLine().ToCharArray();
 Console.WriteLine(StringPermutationOrNotSolutions.PermutationOrNot_2(stringA,stringB) ? "Those two strings are permutation." : "Those two strings are not permutation.");
 
 
-*/
     
     
 // reverse words
@@ -51,3 +53,10 @@ char[] stringO = Console.ReadLine().ToCharArray();
 
 string s = new string(ReverseWordsSolutions.ReverseWords_2(stringO));
 Console.WriteLine("the reversed string is :" + s);
+*/
+
+
+// Linked List
+string[] testString = {"code","code","code", "code", "math", "literature", "literature","math","music", "craft", "dance" };
+LinkedList<string> testStringList = new LinkedList<string>(testString);
+LinkedListRemovedRepeatSolution(testStringList);
