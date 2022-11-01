@@ -1,16 +1,9 @@
-﻿#include <stdio.h>
+﻿#include "LinkedList_Head.h"
+#include <stdio.h>
 #include<stdlib.h>
 
 
-void LinkedListTest();
-
-typedef struct node
-{
-    int data;
-    struct node* next;
-} node;
-
-inline void
+void
 PushFront(struct node** head, int val)
 {
     node* new_node;
@@ -22,7 +15,7 @@ PushFront(struct node** head, int val)
     *head = new_node;
 }
 
-inline void PushBack(struct node** head, int val)
+void PushBack(struct node** head, int val)
 {
     node* new_node;
     new_node = (struct node*)malloc(sizeof(struct node));
@@ -46,7 +39,7 @@ inline void PushBack(struct node** head, int val)
     }
 }
 
-inline void
+void
 PrintList(struct node* head)
 {
     struct node* temp = head;
@@ -60,7 +53,7 @@ PrintList(struct node* head)
     printf("NULL\n");
 }
 
-inline int SearchNode(struct node* head, int val)
+int SearchNode(struct node* head, int val)
 {
     struct node* temp = head;
     while (temp != NULL)
@@ -105,7 +98,7 @@ int RemoveNodeByValue(struct node** head, int val)
     return 0;
 }
 
-inline void PopFront(struct node** head)
+void PopFront(struct node** head)
 {
     int i = (*head)->data;
     struct node* temp;
@@ -115,7 +108,7 @@ inline void PopFront(struct node** head)
     printf("the front value %d is removed", i);
 }
 
-inline int PopBack(struct node** head)
+int PopBack(struct node** head)
 {
     if (*head == NULL)
     {
@@ -150,7 +143,7 @@ inline int PopBack(struct node** head)
 }
 
 
-inline int GetListSize(struct node* head)
+int GetListSize(struct node* head)
 {
     struct node* temp = head;
     int size = 0;
@@ -164,7 +157,7 @@ inline int GetListSize(struct node* head)
     return size;
 }
 
-inline int IsEmptyListOrNot(struct node* head)
+int IsEmptyListOrNot(struct node* head)
 {
     if (GetListSize(head) == 0)
         return 1;
@@ -172,7 +165,7 @@ inline int IsEmptyListOrNot(struct node* head)
 }
 
 
-inline void GetValueAtIndex(struct node* head, int index)
+void GetValueAtIndex(struct node* head, int index)
 {
     int originalIndex = index;
     struct node* temp = head;
@@ -190,7 +183,7 @@ inline void GetValueAtIndex(struct node* head, int index)
     printf("the value at index %d is %d \n", originalIndex, temp->data);
 }
 
-inline void ReplaceValueAtIndex(struct node* head, int index, int val)
+void ReplaceValueAtIndex(struct node* head, int index, int val)
 {
     int originalIndex = index;
     struct node* temp = head;
@@ -213,14 +206,14 @@ inline void ReplaceValueAtIndex(struct node* head, int index, int val)
     printf("the element at index %d has a new value %d \n", originalIndex, temp->data);
 }
 
-inline void InsertValueAtIndex(struct node* head, int index, int val)
+void InsertValueAtIndex(struct node* head, int index, int val)
 {
     node* new_node;
     new_node = (struct node*)malloc(sizeof(struct node));
     new_node->data = val;
     new_node->next = NULL;
 
-    
+
     int originalIndex = index;
     struct node* temp = head;
     struct node* beforeTemp = head;
@@ -234,7 +227,7 @@ inline void InsertValueAtIndex(struct node* head, int index, int val)
 
     while (index > 0)
     {
-        beforeTemp =temp;
+        beforeTemp = temp;
         temp = temp->next;
         index--;
     }
@@ -246,27 +239,24 @@ inline void InsertValueAtIndex(struct node* head, int index, int val)
 }
 
 
-
-inline void RemoveNodeByIndex(struct node** head, int index)
+void RemoveNodeByIndex(struct node** head, int index)
 {
-
-
     const int originalIndex = index;
     int size = GetListSize(*head);
 
     if (index >= size) printf("the value is beyond list size");
 
 
-    if(index==0)
+    if (index == 0)
     {
-        *head= (*head)->next;
+        *head = (*head)->next;
     }
 
     else
     {
         struct node* temp = *head;
         struct node* beforeTemp = *head;
-        
+
         while (index > 0)
         {
             beforeTemp = temp;
@@ -280,14 +270,14 @@ inline void RemoveNodeByIndex(struct node** head, int index)
 }
 
 
-inline void GetValueFront(struct node* head)
+void GetValueFront(struct node* head)
 {
     int value;
     value = head->data;
     printf("the value at front is %d \n", value);
 }
 
-inline void GetValueEnd(struct node* head)
+void GetValueEnd(struct node* head)
 {
     struct node* temp = head;
     int size = GetListSize(head);
@@ -302,9 +292,8 @@ inline void GetValueEnd(struct node* head)
 }
 
 
-inline void ReverseList(struct node** head)
+void ReverseList(struct node** head)
 {
-
     struct node* prev = nullptr;
     struct node* current = *head;
     struct node* next = *head;
@@ -323,82 +312,30 @@ inline void ReverseList(struct node** head)
 }
 
 
-
-
-
-inline void FindKthLast (struct node* head, int k)
+void FindKthLast(struct node* head, int k)
 {
     int SIZE = GetListSize(head);
     int original_k = k;
     node* ptr1 = head;
     node* ptr2 = head;
 
-    if(k > SIZE)
+    if (k > SIZE)
     {
         printf("the %d is bigger than the size of the list : %d !", original_k, SIZE);
     }
     else
     {
-        while (k !=0)
+        while (k != 0)
         {
             ptr1 = ptr1->next;
             k--;
         }
-    
-        while(ptr1!= nullptr)
+
+        while (ptr1 != nullptr)
         {
             ptr1 = ptr1->next;
             ptr2 = ptr2->next;
         }
-        printf("the %d element from last is %d", original_k, ptr2-> data);
+        printf("the %d element from last is %d", original_k, ptr2->data);
     }
-    
-}
-
-
-
-inline void LinkedListTest()
-{
-    struct node* head = NULL;
-
-    for (int i = 1; i < 5; i++)
-    {
-        PushFront(&head, i);
-    }
-
-    PrintList(head);
-    PushFront(&head, 5);
-    PrintList(head);
-    PushBack(&head, 34);
-    PrintList(head);
-    printf("the result of find number 89 is %i \n", SearchNode(head, 89));
-
-    int size = 0;
-    size = GetListSize(head);
-
-    printf("deleted the value %d \n", RemoveNodeByValue(&head, 2));
-
-    PrintList(head);
-    printf("the size of the linked list is : %i \n", GetListSize(head));
-    printf("the linked list is empty or not : %i \n", IsEmptyListOrNot(head));
-
-    GetValueAtIndex(head, 4);
-    PopFront(&head);
-    PrintList(head);
-
-    printf("pop the end of the list : %i \n", PopBack(&head));
-    PrintList(head);
-    GetValueFront(head);
-    GetValueEnd(head);
-    ReplaceValueAtIndex(head, 0, 8);
-    PrintList(head);
-    InsertValueAtIndex(head, 1,18);
-    PrintList(head);
-    RemoveNodeByIndex(&head, 0);
-    PrintList(head);
-    InsertValueAtIndex(head, 1,48);
-    PrintList(head);
-    ReverseList(&head);
-    PrintList(head);
-    FindKthLast(head,2);
 }
