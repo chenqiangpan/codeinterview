@@ -46,3 +46,48 @@ void ReverseList(struct node** head);
 
 
 void FindKthLast(struct node* head, int k);
+
+
+
+
+
+
+
+
+
+
+
+
+void PushFront_withTail(node** head, node** tail, int val);
+
+void PushBack_withTail(node** head, node** tail,int val);
+
+void PrintList_withTail(node* head,node* tail);
+
+int SearchNode_withTail(node* head ,node* tail,int val);
+
+int RemoveNodeByValue_withTail(node** head, node** tail, int val);
+
+void PopFront_withTail(node** head, node** tail);
+
+int PopBack_withTail(node** head, node** tail);
+
+int GetListSize_withTail(node* head,node* tail);
+
+int IsEmptyListOrNot_withTail(node* head,node* tail);
+
+void GetValueAtIndex_withTail(node* head,node* tail,int index);
+
+void ReplaceValueAtIndex_withTail(node* head, node* tail,int index, int val);
+
+void InsertValueAtIndex_withTail(node* head, node* tail,int index, int val);
+
+void RemoveNodeByIndex_withTail(node** head, node** tail,int index);
+
+void GetValueFront_withTail(node* head,node* tail);
+
+void GetValueEnd_withTail(node* head,node* tail);
+
+void ReverseList_withTail(node** head, node** tail);
+
+void FindKthLast_withTail(node* head, node* tail,int k);

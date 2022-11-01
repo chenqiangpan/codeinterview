@@ -60,5 +60,5 @@ int main()
     // printf("%i",BinarySearch(8));
 
     // linked list test
-    LinkedListTest();
+    LinkedListTest_withTail();
 }
