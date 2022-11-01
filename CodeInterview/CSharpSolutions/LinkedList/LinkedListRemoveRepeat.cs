@@ -21,6 +21,8 @@ public class LinkedListRemoveRepeat
             }
         }
 
+        lookUp.Clear();
+
         LinkedList<string> newList = new LinkedList<string>(lookUp);
 
         Display(newList);

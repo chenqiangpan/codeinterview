@@ -324,6 +324,39 @@ inline void ReverseList(struct node** head)
 
 
 
+
+
+inline void FindKthLast (struct node* head, int k)
+{
+    int SIZE = GetListSize(head);
+    int original_k = k;
+    node* ptr1 = head;
+    node* ptr2 = head;
+
+    if(k > SIZE)
+    {
+        printf("the %d is bigger than the size of the list : %d !", original_k, SIZE);
+    }
+    else
+    {
+        while (k !=0)
+        {
+            ptr1 = ptr1->next;
+            k--;
+        }
+    
+        while(ptr1!= nullptr)
+        {
+            ptr1 = ptr1->next;
+            ptr2 = ptr2->next;
+        }
+        printf("the %d element from last is %d", original_k, ptr2-> data);
+    }
+    
+}
+
+
+
 inline void LinkedListTest()
 {
     struct node* head = NULL;
@@ -366,4 +399,6 @@ inline void LinkedListTest()
     InsertValueAtIndex(head, 1,48);
     PrintList(head);
     ReverseList(&head);
+    PrintList(head);
+    FindKthLast(head,2);
 }
